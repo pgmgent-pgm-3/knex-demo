@@ -5,7 +5,7 @@ export function up(knex) {
         table.increments("id").primary();
         table.string("title").notNullable();
         table.string("slug").notNullable();
-        table.text("content").notNullable();
+        table.string("content").notNullable();
         table.boolean("is_homepage").boolean();
     });
 }
