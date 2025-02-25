@@ -5,14 +5,16 @@
  */
 
 import menuItems from "../data/navigation.js";
-// import userData from "../data/user.js";
+import userData from "../data/user.js";
 import NavigationItem from "../models/NavigationItem.js";
-import userData from "../models/User.js";
+// import userInformation from "../models/User.js";
 
 export const home = async (req, res) => {
 
   const navItems = await NavigationItem.query();
   // return res.send(navItems);
+
+  // const userInfo = await userInformation.query();
 
   const pageData = {
     title: "Home",
@@ -25,6 +27,7 @@ export const home = async (req, res) => {
   res.render("pages/home", {
     ...pageData,
     userData,
+    // userInfo,
     menuItems: navItems
   });
 };

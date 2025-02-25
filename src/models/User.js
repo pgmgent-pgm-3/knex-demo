@@ -4,8 +4,8 @@ import { Model } from "objection";
 // instantiate the model
 Model.knex(knex);
 
-// define the userData model
-class userData extends Model {
+// define the userInfo model
+class userInfo extends Model {
     static get tableName() {
         return "users_list";
     }
@@ -28,4 +28,4 @@ class userData extends Model {
     }
 }
 
-export default userData;
+export default userInformation;
