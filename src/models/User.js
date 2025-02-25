@@ -7,7 +7,7 @@ Model.knex(knex);
 // define the userInfo model
 class User extends Model {
     static get tableName() {
-        return "users_list";
+        return "users";
     }
 
     static get idColumn() {

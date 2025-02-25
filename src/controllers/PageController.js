@@ -7,14 +7,13 @@
 import menuItems from "../data/navigation.js";
 import userData from "../data/user.js";
 import NavigationItem from "../models/NavigationItem.js";
-// import userInformation from "../models/user.js";
+import User from "../models/User.js";
 
 export const home = async (req, res) => {
 
   const navItems = await NavigationItem.query();
+  const user = await User.query().findById(1);
   // return res.send(navItems);
-
-  // const userInfo = await userInformation.query();
 
   const pageData = {
     title: "Home",
@@ -26,8 +25,7 @@ export const home = async (req, res) => {
 
   res.render("pages/home", {
     ...pageData,
-    userData,
-    // userInfo,
+    userData: user,
     menuItems: navItems
   });
 };
