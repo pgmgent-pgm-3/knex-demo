@@ -8,22 +8,40 @@ import NavigationItem from "../models/NavigationItem.js";
 import Page from "../models/Page.js";
 import User from "../models/User.js";
 
+/**
+ * Renders the homepage with necessary data.
+ */
 export const home = async (req, res) => {
-
   const menuItems = await NavigationItem.query();
   const userData = await User.query().findById(1);
   const pageData = await Page.query().findOne({
-    is_homepage: true
+    is_homepage: true,
   });
-
 
   res.render("pages/home", {
     ...pageData,
     userData,
-    menuItems
+    menuItems,
   });
 };
 
+/**
+ * Renders an informational page with necessary data.
+ * (Pages such as "About Us", "Contact", etc.)
+ */
+export const page = async (req, res) => {
+  const menuItems = await NavigationItem.query();
+  const pageData = await Page.query().findOne({
+    slug: req.params.slug,
+  });
+
+  res.render("pages/default", {
+    ...pageData,
+    menuItems,
+  });
+};
+
+/*
 export const about = async (req, res) => {
   const menuItems = await NavigationItem.query();
 
@@ -68,3 +86,4 @@ export const contact = async (req, res) => {
     menuItems,
   });
 };
+*/
