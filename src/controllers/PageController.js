@@ -7,7 +7,7 @@
 import menuItems from "../data/navigation.js";
 import userData from "../data/user.js";
 import NavigationItem from "../models/NavigationItem.js";
-// import userInformation from "../models/User.js";
+// import userInformation from "../models/user.js";
 
 export const home = async (req, res) => {
 

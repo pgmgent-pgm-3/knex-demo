@@ -5,7 +5,7 @@ import { Model } from "objection";
 Model.knex(knex);
 
 // define the userInfo model
-class userInfo extends Model {
+class User extends Model {
     static get tableName() {
         return "users_list";
     }
@@ -17,15 +17,15 @@ class userInfo extends Model {
     static get jsonSchema() {
         return {
             type: "object",
-            required: ["firstName", "lastName"],
+            required: ["firstName", "lastName", "bio"],
             properties: {
                 id: { type: "integer" },
                 firstName: { type: "string", minLength: 1, maxLength: 255 },
                 lastName: { type: "string", maxLength: 255 },
-                bio: { type: "string", minLength: 1, maxLength: 255 },
+                bio: { type: "string", minLength: 1 },
             },
         };
     }
 }
 
-export default userInformation;
+export default User;

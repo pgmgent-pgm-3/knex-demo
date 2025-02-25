@@ -5,7 +5,7 @@ export function up(knex) {
         table.increments("id").primary();
         table.string("firstName").notNullable();
         table.string("lastName").notNullable();
-        table.string("bio").notNullable();
+        table.text("bio").notNullable();
     });
 }
 
