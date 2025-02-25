@@ -15,7 +15,7 @@ We will use SQLite as our database, but Knex can be used with other databases li
 ```
 PORT=3000
 DATABASE_TYPE=sqlite
-DATABASE_NAME=knex-demo.sqlite3
+DATABASE_NAME=knex_demo.sqlite3
 NODE_ENV=development
 ```
 3. Run `npm install`
