@@ -29,4 +29,4 @@ class pages extends Model {
     }
 }
 
-export default NavigationItem;
+export default pages;

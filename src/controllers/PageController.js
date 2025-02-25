@@ -8,11 +8,13 @@ import menuItems from "../data/navigation.js";
 import userData from "../data/user.js";
 import NavigationItem from "../models/NavigationItem.js";
 import User from "../models/User.js";
+import pages from "../models/Page.js";
 
 export const home = async (req, res) => {
 
   const navItems = await NavigationItem.query();
   const user = await User.query().findById(1);
+  const page = await pages.query().where("is_homepage", true).first();
   // return res.send(navItems);
 
   const pageData = {
