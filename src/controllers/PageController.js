@@ -14,16 +14,16 @@ export const home = async (req, res) => {
 
   const navItems = await NavigationItem.query();
   const user = await User.query().findById(1);
-  const page = await pages.query().where("is_homepage", true).first();
+  const pageData = await pages.query().where("is_homepage", true).limit(1).first();
   // return res.send(navItems);
 
-  const pageData = {
-    title: "Home",
-    content: `
-      <p>Welcome to our website. We are a small company that does great things!</p>
-      <p>Feel free to browse our site and learn more about us.</p>
-    `,
-  };
+  // const pageData = {
+  //   title: "Home",
+  //   content: `
+  //     <p>Welcome to our website. We are a small company that does great things!</p>
+  //     <p>Feel free to browse our site and learn more about us.</p>
+  //   `,
+  // };
 
   res.render("pages/home", {
     ...pageData,
