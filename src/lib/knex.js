@@ -1,5 +1,6 @@
 import knex from "knex";
 import knexConfig from "../../knexfile.js";
+import express from "express";
 
 // get the environment from the .env file
 const environment = process.env.NODE_ENV || "development";
