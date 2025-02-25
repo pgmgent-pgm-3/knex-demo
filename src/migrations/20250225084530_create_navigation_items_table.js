@@ -4,7 +4,7 @@ export function up(knex) {
     return knex.schema.createTable(tableName, function (table) {
         table.increments("id").primary();
         table.string("label").notNullable();
-        table.string("target");
+        table.string("target").defaultTo("_self");
         table.string("url").notNullable();
     });
 }
