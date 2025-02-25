@@ -17,12 +17,12 @@ class pages extends Model {
     static get jsonSchema() {
         return {
             type: "object",
-            required: ["title", "slug", "content"],
+            required: ["title", "slug"],
             properties: {
                 id: { type: "integer" },
                 title: { type: "string", minLength: 1, maxLength: 255 },
                 slug: { type: "string", maxLength: 255 },
-                content: { type: "string", minLength: 1, maxLength: 255 },
+                content: { type: "string" },
                 is_homepage: { type: "boolean" },
             },
         };
