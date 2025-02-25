@@ -1,6 +1,5 @@
-	
 const tableName = "navigation_items";
- 
+
 export function up(knex) {
   return knex.schema.createTable(tableName, function (table) {
     table.increments("id").primary();
@@ -9,7 +8,7 @@ export function up(knex) {
     table.string("url").notNullable();
   });
 }
- 
+
 export function down(knex) {
   return knex.schema.dropTable(tableName);
 }
