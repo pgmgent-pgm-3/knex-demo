@@ -51,7 +51,7 @@ app.get("/", PageController.home);
 // these routes are commented out because they are not needed anymore
 // app.get("/about-us", PageController.about);
 // app.get("/contact", PageController.contact);
-app.get("/page/:slug", PageController.page);
+app.get("/:slug", PageController.page);
 
 // 404 page
 app.get("*", (req, res) => {
