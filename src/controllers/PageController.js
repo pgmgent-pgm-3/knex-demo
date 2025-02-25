@@ -12,12 +12,14 @@ import User from "../models/User.js";
  * Renders the homepage with necessary data.
  */
 export const home = async (req, res) => {
+  // Get the menu items, user data and the homepage data from the database.
   const menuItems = await NavigationItem.query();
   const userData = await User.query().findById(1);
   const pageData = await Page.query().findOne({
     is_homepage: true,
   });
 
+  // Render the homepage with the necessary data.
   res.render("pages/home", {
     ...pageData,
     userData,
@@ -35,11 +37,21 @@ export const page = async (req, res) => {
     slug: req.params.slug,
   });
 
+  // If the page does not exist, render a 404 page.
+  if (!pageData) {
+    res.status(404).send("Page not found.");
+    return;
+  }
+
+  // Render the page with the necessary data.
   res.render("pages/default", {
     ...pageData,
     menuItems,
   });
 };
+
+// These actions are not needed anymore, because we have a dynamic page route
+// that will render any page with the correct slug.
 
 /*
 export const about = async (req, res) => {
