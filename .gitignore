@@ -10,4 +10,8 @@ node_modules
 
 # Comment this out to exclude .env
 .env
-database.sqlite3
+
+# Database
+knex-demo.sqlite3
+knex_demo.sqlite3
+database.sqlite3 
