@@ -19,7 +19,7 @@ DATABASE_NAME=knex_demo.sqlite3
 NODE_ENV=development
 ```
 3. Run `npm install`
-4. Run `npm run dev` to start the server
+4. Run `npm run start:dev` to start the server
 
 ## How to use Knex
 
