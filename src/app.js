@@ -57,7 +57,6 @@ app.get("/:slug", PageController.page);
 app.get("*", (req, res) => {
   res.status(404).send("Page not found.");
 });
-
 // ---------------------- Error handling ----------------------
 // When an error occurs in the app, the error handling middleware will be called.
 
