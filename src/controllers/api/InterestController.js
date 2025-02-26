@@ -53,10 +53,9 @@ export const store = async (req, res, next) => {
  * Update an interest
  */
 export const update = async (req, res, next) => {
+  const { id } = req.params;
+  const { name } = req.body;
   try {
-    const { id } = req.params;
-    const { name } = req.body;
-
     // step 1: validate if id & name are present in the request body
     if (!name) {
       res.status(400).json({
