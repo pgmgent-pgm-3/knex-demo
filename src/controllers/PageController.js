@@ -36,14 +36,16 @@ export const about = async (req, res) => {
 
   const navItems = await NavigationItem.query();
 
-  const pageData = {
-    title: "About Us",
-    content: `
-      <p>We are a small company that does great things!</p>
-      <p>If you would like to drink the best coffee in the world, you are in the right place.</p>
-      <p>Our coffee is made from the best beans in the world and is prepared by the best baristas.</p>
-    `,
-  };
+  const pageData = await pages.query().where("about", true).limit(1).first();
+
+  // const pageData = {
+  //   title: "About Us",
+  //   content: `
+  //     <p>We are a small company that does great things!</p>
+  //     <p>If you would like to drink the best coffee in the world, you are in the right place.</p>
+  //     <p>Our coffee is made from the best beans in the world and is prepared by the best baristas.</p>
+  //   `,
+  // };
   res.render("pages/default", {
     ...pageData,
     menuItems: navItems
@@ -54,17 +56,19 @@ export const contact = async (req, res) => {
 
   const navItems = await NavigationItem.query();
 
-  const pageData = {
-    title: "Contact",
-    content: `
-      <p>Feel free to contact us at:</p>
-      <p>Phone: 123-456-7890</p>
-      <p>Email:
-        <a href="mailto:example@example.com">john@doe.be</a>
-      </p>
-      <p>And some advice: "Don't drink and code!"</p>
-    `,
-  };
+  const pageData = await pages.query().where("contact", true).limit(1).first();
+
+  // const pageData = {
+  //   title: "Contact",
+  //   content: `
+  //     <p>Feel free to contact us at:</p>
+  //     <p>Phone: 123-456-7890</p>
+  //     <p>Email:
+  //       <a href="mailto:example@example.com">john@doe.be</a>
+  //     </p>
+  //     <p>And some advice: "Don't drink and code!"</p>
+  //   `,
+  // };
   res.render("pages/default", {
     ...pageData,
     menuItems: navItems
