@@ -60,5 +60,18 @@ export const update = async (req, res, next) => {
  * Delete an interest
  */
 export const destroy = async (req, res, next) => {
-  res.send("Delete an interest");
+  try {
+    const { id } = req.params;
+
+    // check if record exists
+    const interestExists = await Interest.query().findById(id);
+    if (!interestExists) {
+      return res.status(404).json({ message: "Interest not found." });
+    }
+
+    const interest = await Interest.query().deleteById(id);
+    res.json({ message: "Interest deleted successfully." });
+  } catch (e) {
+    res.status(500).json({ message: "Something went wrong." });
+  }
 };
