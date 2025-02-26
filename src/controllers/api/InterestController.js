@@ -87,7 +87,7 @@ export const update = async (req, res, next) => {
       name,
     });
 
-    // todo 5: return the updated interest
+    // step 5: return the updated interest
     res.json({
       message: "Interest has been updated",
       interest: updatedInterest,
