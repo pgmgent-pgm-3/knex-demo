@@ -30,13 +30,23 @@ export const index = async (req, res, next) => {
  * Create a new interest
  */
 export const store = async (req, res, next) => {
-  // get name from request body
-  const { name } = req.body;
+  try {
+    // get name from request body
+    const { name } = req.body;
 
-  // create a new interest
-  const interest = await Interest.query().insert({ name });
+    // check if record does not already exist
+    const interestExists = await Interest.query().findOne({ name });
+    if (interestExists) {
+      return res.status(400).json({ message: "Interest already exists." });
+    }
 
-  res.json({ message: "Interest created successfully.", interest });
+    // create a new interest
+    const interest = await Interest.query().insert({ name });
+
+    res.json({ message: "Interest created successfully.", interest });
+  } catch (e) {
+    res.status(500).json({ message: "Something went wrong." });
+  }
 };
 
 /**
