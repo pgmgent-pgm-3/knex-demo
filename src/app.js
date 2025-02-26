@@ -37,6 +37,10 @@ app.delete("/api/interest/:id", API_InterestController.destroy);
 
 // User API routes
 app.get("/api/user", API_UserController.index);
+app.get("/api/user/:id", API_UserController.show);
+app.post("/api/user", API_UserController.store);
+app.put("/api/user/:id", API_UserController.update);
+app.delete("/api/user/:id", API_UserController.destroy);
 
 // Catch non-existing API routes
 app.use("/api/*", (req, res) => {
