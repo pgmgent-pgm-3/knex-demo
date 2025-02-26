@@ -54,7 +54,7 @@ export const store = async (req, res, next) => {
 };
 
 /**
- * Update an user
+ * Update a user
  */
 export const update = async (req, res, next) => {
   const { id } = req.params;
@@ -95,7 +95,7 @@ export const update = async (req, res, next) => {
 };
 
 /**
- * Delete an user
+ * Delete a user
  */
 export const destroy = async (req, res, next) => {
   try {
