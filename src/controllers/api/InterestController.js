@@ -30,7 +30,13 @@ export const index = async (req, res, next) => {
  * Create a new interest
  */
 export const store = async (req, res, next) => {
-  res.send("Create a new interest");
+  // get name from request body
+  const { name } = req.body;
+
+  // create a new interest
+  const interest = await Interest.query().insert({ name });
+
+  res.json({ message: "Interest created successfully.", interest });
 };
 
 /**
