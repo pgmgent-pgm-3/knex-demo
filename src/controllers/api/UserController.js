@@ -32,7 +32,7 @@ export const index = async (req, res, next) => {
 export const store = async (req, res, next) => {
   try {
     // validate incoming data (firstname, lastname, bio)
-    const { firstname, lastname, bio, meta, pets } = req.body;
+    const { firstname, lastname, bio, meta, pets, interests } = req.body;
 
     if (!firstname || !lastname || !bio) {
       return res
@@ -46,7 +46,8 @@ export const store = async (req, res, next) => {
       lastname,
       bio,
       meta,
-      pets
+      pets,
+      interests
     });
 
     res.json({ message: "User created successfully.", user });
