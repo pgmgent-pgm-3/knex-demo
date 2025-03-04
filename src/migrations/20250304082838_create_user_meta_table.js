@@ -9,7 +9,7 @@ export function up(knex) {
       table.string("location", 255);
       
     // declare foreign key
-    table.foreign("user_id").references("users  .id");
+    table.foreign("user_id").references("users.id");
   });
 }
  

@@ -1,6 +1,7 @@
 import knexConfig from "../lib/Knex.js";
 import { Model } from "objection";
 import UserMeta from "./UserMeta.js";
+import Pet from "./Pet.js";
 
 // instantiate the model
 Model.knex(knexConfig);
@@ -38,6 +39,14 @@ class User extends Model {
           to: "user_meta.user_id",
         },
       },
+      pets: {
+        relation: Model.HasManyRelation,
+        modelClass: Pet,
+        join: {
+          from: "users.id",
+          to: "pets.owner_id"
+        }
+      }
     };
   }
 }
