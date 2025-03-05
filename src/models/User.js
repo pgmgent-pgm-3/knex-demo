@@ -1,8 +1,9 @@
-import knexConfig from "../lib/Knex.js";
 import { Model } from "objection";
-import UserMeta from "./UserMeta.js";
-import Pet from "./Pet.js";
+import knexConfig from "../lib/Knex.js";
+import Course from "./Course.js";
 import Interest from "./Interest.js";
+import Pet from "./Pet.js";
+import UserMeta from "./UserMeta.js";
 
 // instantiate the model
 Model.knex(knexConfig);
@@ -58,6 +59,18 @@ class User extends Model {
             to: "interest_user.interest_id",
           },
           to: "interests.id",
+        },
+      },
+      courses: {
+        relation: Model.ManyToManyRelation,
+        modelClass: Course,
+        join: {
+          from: "users.id",
+          through: {
+            from: "course_user.user_id",
+            to: "course_user.course_id",
+          },
+          to: "courses.id",
         },
       },
     };

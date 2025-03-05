@@ -7,7 +7,7 @@
     <h3>Interests</h3>
     <ul>
       <% userData?.interests?.forEach(function(interest) { %>
-      <li><%= interest.name %></li>
+        <li><%= interest.name %></li>
       <% }); %>
     </ul>
     <h3>Meta</h3>
@@ -17,8 +17,15 @@
     </ul>
     <h3>Pets</h3>
     <ul>
-      <li>Pet name: <%= userData?.pets[0]?.name %></li>
-      <li>Age: <%= userData?.pets[0]?.age %></li>
+      <% userData?.pets?.forEach(pet => { %>
+        <li><%= pet.name %> is a <%= pet.species %></li>
+      <% }) %>
+    </ul>
+    <h3>Courses</h3>
+    <ul>
+      <% userData?.courses?.forEach(course => { %>
+        <li><%= course.name %> - <%= course.credits %> credits</li>
+      <% }) %>
     </ul>
   </article>
 </main>
